@@ -6,7 +6,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-#app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 def db_connection():
     conn = None
@@ -121,4 +121,4 @@ def postUser():
     sql = """INSERT INTO users(username, name, password, isEmployee, connection) VALUES (?, ?, ?, ?, ?)"""
     cursor = cursor.execute(sql, ( username, name, password, isEmployee, connection))
     conn.commit()
-    return jsonify("ok")
+    return jsonify("Everything ok")
